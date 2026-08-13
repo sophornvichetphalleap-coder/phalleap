@@ -1291,3 +1291,95 @@ nav a:hover {
         font-size: 13px;
     }
 }
+/* Base Desktop Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    position: relative;
+    z-index: 1000;
+}
+
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 26px;
+    height: 18px;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1001;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: #ff75a0;
+    border-radius: 4px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+/* --- MOBILE SPECIFIC FIXES (Phones <= 768px) --- */
+@media screen and (max-width: 768px) {
+    header {
+        flex-wrap: wrap !important;
+        padding: 14px 20px !important;
+    }
+
+    /* Force button visible on phone screens */
+    header .menu-toggle {
+        display: flex !important;
+    }
+
+    /* Animate lines into 'X' when open */
+    header .menu-toggle.active span:nth-child(1) {
+        transform: translateY(7.5px) rotate(45deg);
+    }
+    header .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    header .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-7.5px) rotate(-45deg);
+    }
+
+    /* Mobile Dropdown Container */
+    header nav {
+        display: none !important;
+        width: 100% !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+        margin-top: 14px !important;
+        padding-top: 14px !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* State when toggled open on phone */
+    header nav.active {
+        display: flex !important;
+    }
+
+    header nav a {
+        display: block !important;
+        width: 100%;
+        text-align: center;
+        padding: 8px 0;
+        font-size: 15px;
+    }
+}
