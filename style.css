@@ -1167,180 +1167,108 @@ footer {
 }
 
 /* ==========================================================================
-   BREAKPOINT 1: ULTRA-WIDE MONITORS & DESKTOPS (1440px and above)
+   DROPDOWN MOBILE HEADER & GLOBAL RESPONSIVE CSS
    ========================================================================== */
-@media (min-width: 1440px) {
-    html {
-        font-size: 17px;
-    }
 
-    header {
-        padding: 18px 10%;
-    }
-
-    .product-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 32px;
-    }
+/* Hamburger Toggle Button (Hidden on Desktop) */
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 24px;
+    padding: 0;
+    z-index: 1001;
 }
 
-/* ==========================================================================
-   BREAKPOINT 2: LAPTOPS & STANDARD DESKTOPS (1025px to 1439px)
-   ========================================================================== */
-@media (min-width: 1025px) and (max-width: 1439px) {
-    .product-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 25px;
-    }
-
-    header {
-        padding: 16px 5%;
-    }
+.menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background: #ff75a0; /* Glowing pink accent */
+    border-radius: 10px;
+    transition: all 0.3s ease;
 }
 
-/* ==========================================================================
-   BREAKPOINT 3: TABLETS & SMALL LAPTOPS (769px to 1024px)
-   ========================================================================== */
-@media (min-width: 769px) and (max-width: 1024px) {
-    body {
-        padding-top: 100px;
-    }
-
-    header {
-        padding: 14px 4%;
-    }
-
-    .logo {
-        font-size: 20px;
-    }
-
-    nav {
-        gap: 6px;
-    }
-
-    nav a {
-        padding: 6px 14px;
-        font-size: 13px;
-    }
-
-    /* Grids scale to 2-columns */
-    .product-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-        padding: 0 20px;
-    }
-
-    .contact-container {
-        grid-template-columns: 1fr 1fr;
-        gap: 1.5rem;
-        padding: 0 20px;
-    }
-
-    .privacy-content-grid,
-    .terms-content-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 18px;
-    }
-
-    .team-grid {
-        gap: 20px;
-    }
-
-    .team-card {
-        max-width: 240px;
-        padding: 20px 15px;
-    }
+/* Hamburger Active State (Transforms to 'X') */
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
 }
 
-/* ==========================================================================
-   BREAKPOINT 4: PORTRAIT TABLETS & LARGE PHONES (481px to 768px)
-   Matches the stacked header card from your preview image
-   ========================================================================== */
+/* --------------------------------------------------------------------------
+   TABLET & MOBILE BREAKPOINT (Under 768px) - Dropdown Transformation
+   -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
-    body {
-        padding-top: 150px; /* Expanded clearance for mobile stacked header */
-    }
-
-    /* Floating Header Card Transformation */
+    
     header {
         position: fixed;
         top: 10px;
-        left: 3%;
-        right: 3%;
-        width: 94%;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 12px;
-        padding: 16px 14px;
-        border-radius: 24px;
+        left: 4%;
+        right: 4%;
+        width: 92%;
+        padding: 14px 20px;
+        border-radius: 20px;
         background: rgba(18, 18, 24, 0.95);
         border: 1px solid rgba(255, 117, 160, 0.3);
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-    }
-
-    .logo {
-        font-size: 21px;
-    }
-
-    nav {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
-        gap: 6px;
+        flex-wrap: wrap; /* Allows navigation to drop down below header bar */
+        z-index: 1000;
+    }
+
+    /* Show Hamburger Icon on Mobile */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* Hide Navigation Menu by Default on Mobile */
+    nav {
+        display: none;
+        flex-direction: column;
         width: 100%;
+        gap: 10px;
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        animation: fadeInDown 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+
+    /* Active Dropdown State triggered by JS */
+    nav.active {
+        display: flex;
     }
 
     nav a {
-        font-size: 13px;
-        padding: 6px 12px;
-        margin-left: 0;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        font-size: 15px;
+        border-radius: 12px;
     }
 
-    /* Section Headings */
-    .section-title,
-    .contact-hero h1,
-    .privacy-header h1,
-    .terms-header h1 {
-        font-size: 2.1rem;
-    }
-
-    /* Product & Team Grids */
+    /* Grids & Form Stacked Layouts */
     .product-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Clean 2-column mobile grid */
+        grid-template-columns: repeat(2, 1fr);
         gap: 15px;
         padding: 0 15px;
     }
 
-    .team-grid {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .team-card {
-        max-width: 100%;
-        width: 100%;
-    }
-
-    /* Contact & Form Layouts Stacked */
-    .contact-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        padding: 0 15px;
-    }
-
+    .contact-container,
+    .privacy-content-grid,
+    .terms-content-grid,
     .form-row {
-        grid-template-columns: 1fr; /* Form fields stack vertically */
-    }
-
-    .booking-actions {
-        flex-direction: column;
-        width: 100%;
+        grid-template-columns: 1fr;
     }
 
     .booking-btn,
@@ -1349,93 +1277,23 @@ footer {
         width: 100%;
         justify-content: center;
     }
+}
 
-    /* Privacy & Terms Grids */
-    .privacy-content-grid,
-    .terms-content-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
+/* Dropdown Animation Keyframes */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-/* ==========================================================================
-   BREAKPOINT 5: SMALL COMPACT PHONES (480px and below)
-   ========================================================================== */
+/* Extra Small Phones (Under 480px) */
 @media (max-width: 480px) {
-    body {
-        padding-top: 140px;
-    }
-
-    header {
-        top: 8px;
-        left: 2%;
-        right: 2%;
-        width: 96%;
-        padding: 12px 10px;
-        border-radius: 20px;
-    }
-
-    .logo {
-        font-size: 19px;
-    }
-
-    nav a {
-        font-size: 12px;
-        padding: 5px 10px;
-    }
-
-    /* Single Column Grid for Small Devices */
     .product-grid {
-        grid-template-columns: 1fr;
-        padding: 0 10px;
-    }
-
-    .section-title,
-    .contact-hero h1,
-    .privacy-header h1,
-    .terms-header h1 {
-        font-size: 1.75rem;
-    }
-
-    .booking-banner-card,
-    .contact-form-card,
-    .privacy-card,
-    .terms-card {
-        padding: 18px 14px;
-        border-radius: 20px;
-    }
-
-    .contact-bubble-card {
-        padding: 1rem;
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .contact-icon {
-        width: 50px;
-        height: 50px;
-        font-size: 1.5rem;
-    }
-
-    .footer-socials-text {
-        justify-content: center;
-    }
-
-    .social-badge {
-        padding: 6px 14px;
-        font-size: 0.8rem;
-    }
-}
-@media (max-width: 768px) {
-    .terms-content-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .terms-header h1 {
-        font-size: 2.1rem;
-    }
-
-    .terms-card {
-        padding: 24px;
+        grid-template-columns: 1fr; /* Single column product cards */
     }
 }
