@@ -8,15 +8,63 @@
 </head>
 <body>
 
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 1. CRITICAL FOR PHONES: Place this inside <head> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morakot Food</title>
+    
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 2. HEADER STRUCTURE: Place this at the top of <body> -->
     <header>
         <div class="logo">MORAKOT FOOD</div>
-        <nav>
-            <a href="index.html">home</a>
-            <a href="menu.html">Menu</a>
-            <a href="about.html">About Us</a>
-            <a href="contact.html" class="active">Contact</a>
+        
+        <!-- Mobile Hamburger Toggle Button -->
+        <button class="menu-toggle" id="mobile-menu-btn" aria-label="Toggle Navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Navigation Links -->
+        <nav id="nav-menu">
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#menu">Menu</a>
+            <a href="#contact">Contact</a>
         </nav>
     </header>
+
+    <!-- Rest of your website content (Hero, Menu, Footer, etc.) -->
+
+    <!-- 3. JAVASCRIPT: Place at the VERY BOTTOM right before </body> -->
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+
+        if (menuBtn && navMenu) {
+            menuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                menuBtn.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuBtn.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+    </script>
+</body>
+</html>
     <br>
     <br>
     <!-- CONTACT HERO BANNER -->
