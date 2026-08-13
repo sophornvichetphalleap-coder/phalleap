@@ -1017,280 +1017,8 @@ footer {
     box-shadow: 0 8px 25px rgba(216, 27, 96, 0.55);
 }
 
-/* Mobile Responsive Adjustments */
-@media (max-width: 768px) {
-    .privacy-content-grid {
-        grid-template-columns: 1fr;
-    }
+/* Paste all the clean responsive CSS rules at the very end of style.css */
 
-    .privacy-header h1 {
-        font-size: 2.1rem;
-    }
-
-    .privacy-card {
-        padding: 24px;
-    }
-
-    .contact-buttons {
-        flex-direction: column;
-    }
-}
-/* ==========================================
-   TERMS OF SERVICE PAGE STYLES
-   ========================================== */
-
-/* Dark Bubbly Terms & Conditions Container */
-.terms-hero-container {
-    max-width: 1080px;
-    margin: 40px auto 80px;
-    padding: 0 20px;
-}
-
-/* Header Section */
-.terms-header {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.terms-header .badge {
-    background-color: rgba(255, 117, 160, 0.12);
-    color: #ff75a0;
-    border: 1px solid rgba(255, 117, 160, 0.25);
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    padding: 8px 20px;
-    border-radius: 50px; /* Bubbly pill shape */
-    display: inline-block;
-    margin-bottom: 16px;
-    box-shadow: 0 0 15px rgba(255, 117, 160, 0.15);
-}
-
-.terms-header h1 {
-    font-size: 2.8rem;
-    color: #2b2525;
-    margin: 0 0 12px 0;
-    font-weight: 800;
-    text-shadow: 0 0 20px rgba(255, 117, 160, 0.25);
-}
-
-.terms-header .last-updated {
-    color: #a0a0b8;
-    font-size: 0.95rem;
-}
-
-/* Grid Layout */
-.terms-content-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-}
-
-/* Terms Cards */
-.terms-card {
-    background: #1e1e28;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 24px; /* Bubbly rounded corners */
-    padding: 32px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.terms-card:hover {
-    transform: translateY(-6px) scale(1.01);
-    border-color: rgba(255, 117, 160, 0.4);
-    box-shadow: 0 18px 35px rgba(240, 98, 146, 0.2);
-}
-
-.terms-card.full-width {
-    grid-column: 1 / -1;
-}
-
-.terms-card h2 {
-    color: #ffffff;
-    font-size: 1.35rem;
-    font-weight: 700;
-    margin-top: 0;
-    margin-bottom: 16px;
-    border-bottom: 2px solid rgba(255, 117, 160, 0.2);
-    padding-bottom: 10px;
-}
-
-.terms-card p {
-    color: #a0a0b8;
-    line-height: 1.6;
-    margin-bottom: 12px;
-}
-
-.terms-card ul {
-    padding-left: 20px;
-    margin: 0;
-}
-
-.terms-card li {
-    margin-bottom: 10px;
-    color: #a0a0b8;
-    line-height: 1.5;
-}
-
-/* Footer Social Media Badges */
-.footer-socials-text {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.social-badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px 18px;
-    background-color: rgba(255, 255, 255, 0.05);
-    color: #f1f1f6;
-    border: 1px solid rgba(255, 117, 160, 0.3); /* Soft pink border */
-    border-radius: 50px; /* Bubbly pill shape */
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-.social-badge:hover {
-    background: linear-gradient(135deg, #f06292, #d81b60); /* Gradient fill */
-    color: #ffffff;
-    border-color: transparent;
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 6px 20px rgba(216, 27, 96, 0.45);
-}
-
-/* Base Desktop Styles (Default: > 1024px) */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-/* Hide Hamburger Toggle on Larger Screens */
-.menu-toggle {
-    display: none;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    width: 26px;
-    height: 18px;
-    flex-direction: column;
-    justify-content: space-between;
-    z-index: 1001;
-}
-
-.menu-toggle span {
-    width: 100%;
-    height: 3px;
-    background-color: #ff75a0;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-}
-
-/* Horizontal Navigation for Desktop */
-nav {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-}
-
-nav a {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 15px;
-    transition: color 0.2s ease;
-}
-
-nav a:hover {
-    color: #ff75a0;
-}
-
-
-/* Tablet Viewport Adjustments (769px to 1024px) */
-@media (max-width: 1024px) {
-    header {
-        padding: 16px 30px;
-    }
-
-    nav {
-        gap: 16px;
-    }
-
-    nav a {
-        font-size: 14px;
-    }
-}
-
-
-/* Mobile Viewport Adjustments (<= 768px) */
-@media (max-width: 768px) {
-    header {
-        flex-wrap: wrap;
-        padding: 14px 20px;
-    }
-
-    .menu-toggle {
-        display: flex; /* Display hamburger button */
-    }
-
-    /* Transform Hamburger into an 'X' when active */
-    .menu-toggle.active span:nth-child(1) {
-        transform: translateY(7.5px) rotate(45deg);
-    }
-
-    .menu-toggle.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .menu-toggle.active span:nth-child(3) {
-        transform: translateY(-7.5px) rotate(-45deg);
-    }
-
-    /* Vertical Mobile Dropdown Menu */
-    nav {
-        display: none;
-        width: 100%;
-        flex-direction: column;
-        gap: 12px;
-        margin-top: 14px;
-        padding-top: 14px;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    nav.active {
-        display: flex;
-    }
-
-    nav a {
-        font-size: 14px;
-        text-align: center;
-        padding: 6px 0;
-    }
-}
-
-
-/* Small Mobile Screens (<= 380px) */
-@media (max-width: 380px) {
-    header {
-        padding: 12px 14px;
-    }
-
-    nav a {
-        font-size: 13px;
-    }
-}
 /* Base Desktop Header */
 header {
     display: flex;
@@ -1312,7 +1040,6 @@ header {
     flex-direction: column;
     justify-content: space-between;
     z-index: 1001;
-    -webkit-tap-highlight-color: transparent;
 }
 
 .menu-toggle span {
@@ -1336,11 +1063,16 @@ nav a {
     font-size: 15px;
 }
 
-/* --- MOBILE SPECIFIC FIXES (Phones <= 768px) --- */
+/* --- MOBILE SPECIFIC RULES (Phones <= 768px) --- */
 @media screen and (max-width: 768px) {
     header {
         flex-wrap: wrap !important;
         padding: 14px 20px !important;
+        background: rgba(18, 18, 24, 0.95);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 117, 160, 0.25);
+        width: 92%;
+        margin: 10px auto;
     }
 
     /* Force button visible on phone screens */
@@ -1370,7 +1102,7 @@ nav a {
         border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    /* State when toggled open on phone */
+    /* Open State */
     header nav.active {
         display: flex !important;
     }
