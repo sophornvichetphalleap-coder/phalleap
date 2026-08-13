@@ -1166,40 +1166,99 @@ footer {
     box-shadow: 0 6px 20px rgba(216, 27, 96, 0.45);
 }
 
-//* Mobile Header Fix for Hamburger Dropdown */
+/* Base Desktop Styles (Default: > 1024px) */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Hide Hamburger Toggle on Larger Screens */
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 26px;
+    height: 18px;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: #ff75a0;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+/* Horizontal Navigation for Desktop */
+nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: color 0.2s ease;
+}
+
+nav a:hover {
+    color: #ff75a0;
+}
+
+
+/* Tablet Viewport Adjustments (769px to 1024px) */
+@media (max-width: 1024px) {
+    header {
+        padding: 16px 30px;
+    }
+
+    nav {
+        gap: 16px;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+}
+
+
+/* Mobile Viewport Adjustments (<= 768px) */
 @media (max-width: 768px) {
     header {
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        flex-wrap: wrap !important;
-        padding: 14px 20px !important;
+        flex-wrap: wrap;
+        padding: 14px 20px;
     }
 
-    /* Force hamburger button to display on mobile */
     .menu-toggle {
-        display: flex !important;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 26px;
-        height: 18px;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        padding: 0;
-        z-index: 1001;
+        display: flex; /* Display hamburger button */
     }
 
-    /* Pink lines for the hamburger button */
-    .menu-toggle span {
-        width: 100%;
-        height: 3px;
-        background-color: #ff75a0;
-        border-radius: 4px;
-        transition: all 0.3s ease;
+    /* Transform Hamburger into an 'X' when active */
+    .menu-toggle.active span:nth-child(1) {
+        transform: translateY(7.5px) rotate(45deg);
     }
 
-    /* Navigation links hidden by default on phone */
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-7.5px) rotate(-45deg);
+    }
+
+    /* Vertical Mobile Dropdown Menu */
     nav {
         display: none;
         width: 100%;
@@ -1210,16 +1269,25 @@ footer {
         border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    nav a {
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 14px;
-        text-align: center;
+    nav.active {
+        display: flex;
     }
 
-    /* Displays navigation when toggled */
-    nav.active {
-        display: flex !important;
+    nav a {
+        font-size: 14px;
+        text-align: center;
+        padding: 6px 0;
+    }
+}
+
+
+/* Small Mobile Screens (<= 380px) */
+@media (max-width: 380px) {
+    header {
+        padding: 12px 14px;
+    }
+
+    nav a {
+        font-size: 13px;
     }
 }
